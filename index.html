@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/my_ra_app/">
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="A new Flutter project.">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="my_sa_ra_app">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="stylesheet" href="icons/Icon-512.png">
+    <link rel="stylesheet" href="icons/Icon-maskable-192.png">
+    <link rel="stylesheet" href="icons/Icon-maskable-512.png">
+    <link rel="apple-touch-icon" href="icons/Icon-512.png">
+    <link rel="apple-touch-icon" href="icons/Icon-maskable-192.png">
+    <link rel="apple-touch-icon" href="icons/Icon-maskable-512.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet">
+
+    <!-- 1. ดึง Material Icons โดยตรงผ่าน Google Fonts CDN -->
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <title>ระบบสารบรรณและคุมเงินนอกงบประมาณ</title>
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="google-signin-client_id"
+      content="733937778836-9i2j28pn0rta0ic0cbqu449g8s0m0d88.apps.googleusercontent.com">
+
+    <style>
+    /* บังคับ Override Icon ทั้งหมดในระบบให้ไปใช้ Font จาก Google CDN */
+    @font-face {
+      font-family: 'MaterialIcons';
+      src: url('https://fonts.gstatic.com/s/materialicons/v142/flJgRqZOjjE4EVfChqsJ8ynP.woff2') format('woff2');
+    }
+  </style>
+
+  </head>
+
+  <body>
+    <script>
+    // 2. บังคับใช้ html renderer ผ่าน JS ในสคริปต์เริ่มต้นของ Flutter
+    window.flutterWebRenderer = "html";
+  </script>
+    <script>
+    // 2. ป้องกันไม่ให้ Flutter Web พยายามหาไฟล์ Font ในเครื่องที่ Path ผิด
+    window.flutterConfiguration = {
+      canvasKitBaseUrl: "https://unpkg.com/canvaskit-wasm@0.38.0/bin/full/"
+    };
+  </script>
+    <script src="flutter.js" defer></script>
+
+    <script>
+    window.addEventListener('load', function(ev) {
+      // โหลด Flutter Web App
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: null, // ปิดแคช Service Worker เพื่อป้องกันจอขาว
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+    <script>
+    window.addEventListener('load', function (ev) {
+      _flutter.loader.loadEntrypoint({
+        onEntrypointLoaded: async function (engineInitializer) {
+          let appRunner = await engineInitializer.initializeEngine({
+            useColorOutput: false,
+          });
+          await appRunner.runApp();
+        }
+      });
+    });
+  </script>
+
+    <script>
+    window.addEventListener('load', function (ev) {
+      _flutter.loader.loadEntrypoint({
+        onEntrypointLoaded: async function (engineInitializer) {
+          let appRunner = await engineInitializer.initializeEngine({
+            renderer: "html" // บังคับวาดด้วย HTML Renderer เพื่อไม่ให้ติดปัญหาจอขาว
+          });
+          await appRunner.runApp();
+        }
+      });
+    });
+  </script>
+
+  </body>
+  <script>
+  window.addEventListener('load', function (ev) {
+    _flutter.loader.loadEntrypoint({
+      onEntrypointLoaded: async function (engineInitializer) {
+        let appRunner = await engineInitializer.initializeEngine({
+          renderer: "html"
+        });
+        await appRunner.runApp();
+      }
+    });
+  });
+</script>
+
+</html>
